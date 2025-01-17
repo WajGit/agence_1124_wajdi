@@ -4,7 +4,7 @@
         echo "<ul class='listLogement'>";
         foreach ($logements as $logement){
             echo "<li>";
-            echo ($logement['photo'] == "")? "<img src='https://placehold.co/250x250/png' alt='photoVide'/>"
+            echo ($logement['photo'] == "")? "<img src='https://placehold.co/600x600/png' alt='photoVide'/>"
             : "<img src='" . $logement['photo']  . "' alt='" . $logement['titre'] ."'/>";
             echo "<div><p>" . $logement['ville'] . " (" . $logement['cp'] .")</p>";
             echo "<ul><li>" . $logement['type'] . "</li></ul>";

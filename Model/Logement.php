@@ -11,16 +11,16 @@ class Logement{
     private string $type;
     private string $description;
 
-    public function __construct(string $titre, string $adresse, string $ville, int $cp, int $surface, int $prix, string $photo, string $type, string $description){
+    public function __construct(string $titre, string $adresse, string $ville, string $cp, string $surface, string $prix, string $photo, string $type, string $description){
         $this->titre = $titre;
         $this->adresse = $adresse;
         $this->ville = $ville;
-        $this->cp = $cp;
-        $this->surface = $surface;
-        $this->prix = $prix;
+        $this->cp = intval($cp);
+        $this->surface = intval($surface);
+        $this->prix = intval($prix);
         $this->photo = $photo;
         $this->type = $type;
-        $this->description = $description;
+        $this->description = trim($description);
     }
 	
     public function getTitre(): string {return $this->titre;}

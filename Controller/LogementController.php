@@ -4,7 +4,6 @@ require_once "./Repository/LogementRepository.php";
 class LogementController {
 
     public function create(){
-    
         if(isset($_POST['ajouterLogement'])){
             $logementRepo = new LogementRepository();
             $logement = new Logement($_POST['titre'],
@@ -22,7 +21,7 @@ class LogementController {
             else{
                 $_SESSION['message'] = "<div class='attention'>Création erreur</div>";
             }
-            header('Location:index.php?action=listLivres');
+            header('Location:index.php?action=liste');
             exit();
         }
         require "./Vue/Logement/ajouter.php";
@@ -36,19 +35,19 @@ class LogementController {
                 $logement = new Logement($_POST['titre'],
                 $_POST['adresse'],
                 $_POST['ville'],
-                intval($_POST['cp']),
-                intval($_POST['surface']),
-                intval($_POST['prix']),
+                $_POST['cp'],
+                $_POST['surface'],
+                $_POST['prix'],
                 $_POST['photo'],
                 $_POST['type'],
-                trim($_POST['description']));
+                $_POST['description']);
                 if($logementRepo->editLogement($id, $logement)){
                     $_SESSION['message'] = "<div class='succes'>Update effectuée</div>";
                 }
                 else{
                     $_SESSION['message'] = "<div class='attention'>Update erreur</div>";
                 }
-                header('Location:index.php?action=listLivres');
+                header('Location:index.php?action=liste');
                 exit();
             }
             $logementN = $logementRepo->logementById($id);
@@ -65,7 +64,7 @@ class LogementController {
             else{
                 $_SESSION['message'] = "<div class='attention'>Effacement erreur</div>";
             }
-            header('Location:index.php?action=listLivres');
+            header('Location:index.php?action=liste');
             exit();
         }
     }
