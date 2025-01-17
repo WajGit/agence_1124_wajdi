@@ -1,6 +1,6 @@
 <main>
     <?php
-    if (isset($logements)) {
+    if ($logements != []) {
         echo "<ul class='listLogement'>";
         foreach ($logements as $logement){
             echo "<li>";
@@ -18,7 +18,7 @@
         echo "</ul>";
     }
     else{
-        echo "Rien à afficher";
+        echo "<h1>Rien à afficher<h1>";
     }
     ?>
 </main>

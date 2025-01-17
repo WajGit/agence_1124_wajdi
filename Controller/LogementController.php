@@ -2,8 +2,7 @@
 require_once "./Model/Logement.php";
 require_once "./Repository/LogementRepository.php";
 class LogementController {
-
-    public function create(){
+    public function create(): void{
         if(isset($_POST['ajouterLogement'])){
             $logementRepo = new LogementRepository();
             $logement = new Logement($_POST['titre'],
@@ -27,7 +26,7 @@ class LogementController {
         require "./Vue/Logement/ajouter.php";
     }
 
-    public function update(){
+    public function update(): void{
         if(isset($_GET['id'])){
             $logementRepo = new LogementRepository();
             $id = base64_decode($_GET['id']);
@@ -54,7 +53,7 @@ class LogementController {
         }
         require "./Vue/Logement/ajouter.php";
     }
-    public function delete(){
+    public function delete(): void{
         if(isset($_GET['id'])){
             $id = base64_decode($_GET['id']);
             $logementRepo = new LogementRepository();
@@ -69,7 +68,7 @@ class LogementController {
         }
     }
 
-    public function list(){
+    public function list(): void{
         $logementRepo = new LogementRepository();
         if(isset($_POST['search'])){
             $saisie = trim($_POST['searchValue']);
@@ -77,7 +76,6 @@ class LogementController {
         }
         else{
             $logements = $logementRepo->allLogements();
-            
         }
         require "./Vue/Logement/liste.php";
     }

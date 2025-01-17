@@ -36,10 +36,11 @@
             <input type="text" name="photo" value="<?php echo (isset($logementN)? $logementN['photo'] : "") ?>">
             <span class="result" name="photo"></span>
         </div>
+        <div>
             <label for="type">Type de logement</label>
             <select id="typeLogement" name="type">
-                <option value="appartement">Appartement</option>
-                <option value="maison">Maison</option>
+                <option value="appartement"<?php echo (isset($logementN)? (($logementN['type'] == "appartement" )? "selected" : "") : "") ?>>Appartement</option>
+                <option value="maison" <?php echo (isset($logementN)? (($logementN['type'] == "maison" )? "selected" : "") : "") ?>>Maison</option>
             </select>
             <span class="result" name="type"></span>
         </div>

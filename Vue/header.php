@@ -19,7 +19,7 @@
             </div>
             <div class="search">
                 <form action="index.php?action=liste" method="post">
-                    <input type="search" name="searchValue">
+                    <input type="search" name="searchValue" placeholder="Votre recherche">
                     <button type="submit" name="search"><i class="fa-solid fa-magnifying-glass-arrow-right"></i></button>
                 </form>
             </div>
